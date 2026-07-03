@@ -57,8 +57,8 @@
         img {
             width: 100%;
             border-radius: 16px;
-            margin-top: 30px;
-            margin-bottom: 30px;
+            margin-top: 25px;
+            margin-bottom: 25px;
         }
 
         .quote {
@@ -81,16 +81,17 @@
             font-style: italic;
         }
 
-        audio {
-            display: none;
-        }
-
-        .extra-text {
-            margin-top: 15px;
-            padding: 20px;
-            background: #f3efe6;
-            border-left: 6px solid #1f6b2b;
+        .music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 18px;
+            border: none;
             border-radius: 10px;
+            background: #1f6b2b;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -108,66 +109,68 @@
         <h2>The History of the GREAT IRISH POTATO</h2>
 
         <p>
-            The GREAT IRISH POTATO, scientifically known as
-            <span class="scientific">Solanum tuberosum</span>,
-            occupies a special place in Irish agricultural history.
+            The GREAT IRISH POTATO (<span class="scientific">Solanum tuberosum</span>) shaped Irish agriculture and history.
         </p>
 
         <p>
-            Across generations, communities throughout Ireland cultivated
-            the GREAT IRISH POTATO in fields across the countryside.
+            It became a staple food for millions, especially in rural Ireland.
         </p>
     </div>
 
     <div class="card">
-        <h2>Featured Image</h2>
+        <h2>Philip Holding His Potatoes</h2>
 
-        <img src="./philip_moriarty_potatoes.jpg" alt="Potato Image">
+        <img src="./philip_moriarty_potatoes.jpg" alt="Philip Moriarty holding potatoes">
 
         <p><strong>Those who don’t know… those who know.</strong></p>
 
-        <!-- REQUIRED EXTRA TEXT UNDER IMAGE -->
-        <div class="extra-text">
-            <p>
-                The Great Irish Famine (1845–1852) was a major period of starvation and hardship
-                in Ireland caused by repeated potato crop failure.
-            </p>
-
-            <p>
-                The Irish Republican Army (IRA) refers to various Irish republican movements
-                throughout history connected to Ireland’s struggle for independence.
-            </p>
-        </div>
-    </div>
-
-    <div class="card">
-        <h2>Legacy</h2>
+        <p>
+            The Great Irish Famine (1845–1852) caused widespread starvation due to potato blight,
+            reshaping Irish society forever.
+        </p>
 
         <p>
-            The story of <span class="scientific">Solanum tuberosum</span>
-            continues to shape agriculture and food culture worldwide.
+            The Irish Republican Army (IRA) refers to Irish republican movements involved in the
+            struggle for Irish independence.
         </p>
+
+        <img src="./philip_moriarty_legacy.jpg" alt="Philip Moriarty Legacy">
 
         <div class="quote">
             “A nation may rise and fall, but the potato remains.”
         </div>
     </div>
 
+    <div class="card">
+        <h2>Legacy of the GREAT IRISH POTATO</h2>
+
+        <p>
+            The potato remains one of the most important crops in global agriculture today.
+        </p>
+    </div>
+
 </div>
 
-<!-- MUSIC (LOOPS, BUT AUTOPLAY DEPENDS ON BROWSER) -->
-<audio id="bgMusic" autoplay loop>
+<!-- MUSIC (USER CONTROLLED) -->
+<audio id="bgMusic" loop>
     <source src="./black_and_tans.mp3" type="audio/mpeg">
 </audio>
 
+<button class="music-btn" onclick="toggleMusic()">Play Music 🎵</button>
+
 <script>
-    // ensures playback is attempted properly
     const music = document.getElementById("bgMusic");
-    window.addEventListener("load", () => {
-        music.play().catch(() => {
-            // autoplay may be blocked — normal browser behavior
-        });
-    });
+    let playing = false;
+
+    function toggleMusic() {
+        if (!playing) {
+            music.play();
+            playing = true;
+        } else {
+            music.pause();
+            playing = false;
+        }
+    }
 </script>
 
 <footer>
